@@ -1,0 +1,116 @@
+/* General styles */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    color: #333;
+}
+
+.recipe-container {
+    padding: 16px;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/* Recipe header styles */
+.recipe-header {
+    text-align: center;
+}
+
+.recipe-image {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+}
+
+.recipe-title {
+    font-size: 1.8rem;
+    margin: 16px 0;
+}
+
+.recipe-description {
+    font-size: 1rem;
+    color: #555;
+}
+
+/* Preparation time */
+.prep-time h2,
+.ingredients h2,
+.instructions h2,
+.nutrition h2 {
+    font-size: 1.4rem;
+    margin-bottom: 8px;
+}
+
+.prep-time ul {
+    padding: 0;
+    list-style: none;
+}
+
+.prep-time ul li {
+    margin-bottom: 4px;
+    font-size: 0.9rem;
+}
+
+/* Ingredients */
+.ingredients ul {
+    list-style: disc;
+    padding-left: 20px;
+}
+
+.ingredients ul li {
+    margin-bottom: 4px;
+    font-size: 0.9rem;
+}
+
+/* Instructions */
+.instructions ol {
+    list-style: decimal;
+    padding-left: 20px;
+}
+
+.instructions ol li {
+    margin-bottom: 8px;
+    font-size: 0.9rem;
+}
+
+/* Nutrition */
+.nutrition {
+    margin-top: 16px;
+}
+
+.nutrition-item {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 4px;
+    font-size: 0.9rem;
+}
+
+/* Responsive design */
+@media (max-width: 600px) {
+    .recipe-title {
+        font-size: 1.5rem;
+    }
+
+    .recipe-description {
+        font-size: 0.9rem;
+    }
+
+    .prep-time h2,
+    .ingredients h2,
+    .instructions h2,
+    .nutrition h2 {
+        font-size: 1.2rem;
+    }
+
+    .prep-time ul li,
+    .ingredients ul li,
+    .instructions ol li,
+    .nutrition-item {
+        font-size: 0.85rem;
+    }
+
+    .recipe-container {
+        padding: 8px;
+    }
+}

@@ -1,100 +1,174 @@
-body {
-    font-family: Arial, sans-serif;
-    line-height: 1.6;
-    margin: 0;
-    padding: 0;
-    background-color: #f9f4f0;
-    color: #333;
-}
+ /* Import Google Fonts */
+ @import url('https://fonts.googleapis.com/css2?family=Young+Serif:wght@400&family=Outfit:wght@400;600;700&display=swap');
 
-.recipe-container {
-    max-width: 700px;
-    margin: 2rem auto;
-    padding: 2rem;
-    background: #fff;
-    border-radius: 10px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-}
-
-.recipe-header {
-    text-align: left;
-    margin-bottom: 2rem;
-    padding: 0 1.5rem;
-    max-width: 85%;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-.recipe-image {
-    width: 100%;
-    border-radius: 10px;
-    margin-bottom: 1.5rem;
-}
-
-.recipe-title {
-    font-size: 2rem;
-    margin-bottom: 0.5rem;
-    color: #2c3e50;
-}
-
-.recipe-description {
-    font-size: 1rem;
-    color: #7f8c8d;
-    padding: 0;
-}
-
-.prep-time, .ingredients, .instructions, .nutrition {
-    padding: 1.5rem;
-    border-radius: 10px;
-    margin: 1rem auto;
-    max-width: 85%;
-    text-align: left;
-}
-
-.prep-time {
-    background-color: #FFF7FC;
-}
-
-.prep-time h2, .ingredients h2, .instructions h2, .nutrition h2 {
-    font-size: 1.4rem;
-    font-weight: bold;
-    color: #693b58;
-    margin-bottom: 0.75rem;
-    text-align: left;
-}
-
-.ingredients {
-    padding-top: 1rem;
-}
-
-.instructions {
-    border-top: 2px solid #ccc;
-    padding-top: 1rem;
-}
-
-.nutrition {
-    border-top: 2px solid #ccc;
-    padding-top: 1rem;
-}
-
-ul, ol {
-    padding-left: 2rem;
-    margin-right: 1rem;
-    text-align: left;
-}
-
-ol li::marker {
-    color: #8F4A33;
-    font-weight: bold;
-}
-
-.nutrition-item {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0.75rem 1.5rem;
-    border-bottom: 2px solid #ecf0f1;
-    font-weight: bold;
-    color: #8F4A33;
-    text-align: left;
-}
+ /* General Styles */
+ body {
+     font-family: 'Outfit', sans-serif; /* Sets the main font */
+     line-height: 1.6; /* Improves readability */
+     margin: 0;
+     padding: 0;
+     background-color: #f9f4f0; /* Light beige background */
+     color: #333; /* Dark gray text */
+ }
+ 
+ /* Recipe Container (Main Card) */
+ .recipe-container {
+     max-width: 700px; /* Limits width for better readability */
+     margin: 2rem auto; /* Centers the container */
+     padding: 2rem;
+     background: #fff; /* White background for contrast */
+     border-radius: 10px; /* Rounded corners */
+     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Adds a subtle shadow */
+ }
+ 
+ /* Recipe Header */
+ .recipe-header {
+     text-align: left;
+     margin-bottom: 2rem;
+     padding: 0 1.5rem;
+     max-width: 85%; /* Matches width of other sections */
+     margin-left: auto;
+     margin-right: auto;
+ }
+ 
+ /* Recipe Image */
+ .recipe-image {
+     width: 100%;
+     border-radius: 10px;
+     margin-bottom: 1.5rem;
+ }
+ 
+ /* Recipe Title */
+ .recipe-title {
+     font-family: 'Young Serif', serif;
+     font-size: 2rem;
+     margin-bottom: 0.5rem;
+     color: #2c3e50; /* Dark blue-gray */
+ }
+ 
+ /* Recipe Description */
+ .recipe-description {
+     font-family: 'Outfit', sans-serif;
+     font-size: 1rem;
+     color: #7f8c8d; /* Light grayish-blue */
+     padding: 0;
+ }
+ 
+ /* Sections: Prep Time, Ingredients, Instructions, Nutrition */
+ .prep-time, .ingredients, .instructions, .nutrition {
+     padding: 1.5rem;
+     border-radius: 10px;
+     margin: 1rem auto;
+     max-width: 85%; /* Ensures consistent width */
+     text-align: left;
+ }
+ 
+ /* Prep Time Box */
+ .prep-time {
+     margin: 0 auto; /* Centers the box */
+     width: 100%; /* Matches width with other sections */
+     padding: 1.5rem;
+     border-radius: 8px;
+     background-color: #fdecef; /* Light pink background */
+     box-sizing: border-box; /* Ensures padding doesn't affect width */
+     color: #000000; /* Dark purple-pink text */
+ }
+ 
+ /* Section Titles (Headings) */
+ .prep-time h2, .ingredients h2, .instructions h2, .nutrition h2 {
+     font-family: 'Young Serif', serif;
+     font-size: 1.4rem;
+     font-weight: 400; /* Normal weight for Young Serif */
+     color: #6E3D53; /* Dark purple */
+     margin-bottom: 0.75rem;
+     text-align: left;
+ }
+ 
+ /* Ingredients Section */
+ .ingredients {
+     border-bottom: 2px solid #ccc; /* Adds a gray divider line */
+     padding-bottom: 1rem; /* Creates space between line and next section */
+     margin-bottom: 0.75rem; /* Ensures space before "Instructions" */
+     color: #000000; /* Dark purple text */
+ }
+ 
+ /* Ingredients List */
+ .ingredients ul {
+     padding-left: 1.5rem; /* Moves bullets closer to the heading */
+     margin: 0;
+ }
+ 
+ .ingredients ul li {
+     padding-left: 0.25rem; /* Ensures even spacing between bullet and text */
+ }
+ 
+ /* Instructions Section */
+ .instructions {
+     color: #000000; /* Dark purple text */
+     margin-top: 0;
+     padding-top: 0;
+ }
+ 
+ /* Instructions List */
+ .instructions ol {
+     padding-left: 1.5rem; /* Moves numbers closer to the heading */
+     margin: 0;
+ }
+ 
+ .instructions ol li {
+     margin-bottom: 0.75rem;
+     padding-left: 0.5rem; /* Ensures even spacing between numbers and text */
+ }
+ 
+ /* Bold Numbering in Instructions */
+ .instructions ol li::marker {
+     font-weight: bold;
+     color: #8F4A33; /* Dark orange */
+ }
+ 
+ /* Nutrition Section */
+ .nutrition {
+     border-top: 2px solid #ccc; /* Adds a gray divider line */
+     padding-top: 1rem;
+     color: #8F4A33; /* Dark purple text */
+ }
+ 
+ /* List Styling */
+ ul, ol {
+     padding-left: 2rem; /* Aligns with text */
+     margin-right: 1rem;
+     text-align: left;
+ }
+ 
+ /* Numbered List Marker Color */
+ ol li::marker {
+     color: #8F4A33; /* Dark orange */
+     font-weight: bold;
+ }
+ 
+ /* Nutrition Facts Layout */
+ .nutrition-item {
+     display: flex;
+     align-items: center;
+     padding: 0.75rem 0;
+     border-bottom: 2px solid #ecf0f1; /* Light gray divider */
+     font-family: 'Outfit', sans-serif;
+     font-weight: 600;
+     color: #8F4A33; /* Dark orange */
+ }
+ 
+ /* Nutrition Labels (e.g., Calories, Protein) */
+ .nutrition-label {
+     font-weight: 400;
+     color: #000000; /* Black */
+     flex: 1;
+     padding-left: 1rem; /* Moves label slightly to the right */
+ }
+ 
+ /* Nutrition Values (e.g., 277kcal, 20g) */
+ .nutrition-value {
+     font-weight: 700;
+     color: #8F4A33; /* Dark orange */
+     flex: 0.5;
+     text-align: left;
+ }
