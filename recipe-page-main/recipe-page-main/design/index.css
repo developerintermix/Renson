@@ -90,6 +90,7 @@ body {
     padding-bottom: 1rem; /* Creates space between line and next section */
     margin-bottom: 0.75rem; /* Ensures space before "Instructions" */
     color: #000000; /* Dark purple text */
+    margin-top: 0;
 }
 
 /* Ingredients List */
