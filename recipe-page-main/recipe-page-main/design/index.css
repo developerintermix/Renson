@@ -8,23 +8,27 @@ body {
 }
 
 .recipe-container {
-    max-width: 800px;
+    max-width: 700px;
     margin: 2rem auto;
-    padding: 1rem;
+    padding: 2rem;
     background: #fff;
     border-radius: 10px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 .recipe-header {
-    text-align: center;
+    text-align: left;
     margin-bottom: 2rem;
+    padding: 0 1.5rem;
+    max-width: 85%;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .recipe-image {
     width: 100%;
     border-radius: 10px;
-    margin-bottom: 1rem;
+    margin-bottom: 1.5rem;
 }
 
 .recipe-title {
@@ -36,77 +40,61 @@ body {
 .recipe-description {
     font-size: 1rem;
     color: #7f8c8d;
+    padding: 0;
+}
+
+.prep-time, .ingredients, .instructions, .nutrition {
+    padding: 1.5rem;
+    border-radius: 10px;
+    margin: 1rem auto;
+    max-width: 85%;
+    text-align: left;
 }
 
 .prep-time {
-    margin-bottom: 2rem;
-    border: 2px solid #FFF7FC;
     background-color: #FFF7FC;
-    padding: 1rem;
 }
 
-.prep-time h2 {
-    color: #8B5B73;
-    border-bottom: none;
+.prep-time h2, .ingredients h2, .instructions h2, .nutrition h2 {
+    font-size: 1.4rem;
+    font-weight: bold;
+    color: #693b58;
+    margin-bottom: 0.75rem;
+    text-align: left;
 }
 
-.ingredients h2, .instructions h2, .nutrition h2 {
-    color: #8F4A33;
-    border-bottom: none;
+.ingredients {
+    padding-top: 1rem;
 }
 
-.ingredients, .instructions {
-    margin-bottom: 2rem;
-    padding-bottom: 1rem;
-    border-bottom: 2px solid #ecf0f1;
+.instructions {
+    border-top: 2px solid #ccc;
+    padding-top: 1rem;
 }
 
 .nutrition {
-    margin-bottom: 2rem;
-    padding-bottom: 1rem;
+    border-top: 2px solid #ccc;
+    padding-top: 1rem;
+}
+
+ul, ol {
+    padding-left: 2rem;
+    margin-right: 1rem;
+    text-align: left;
+}
+
+ol li::marker {
+    color: #8F4A33;
+    font-weight: bold;
 }
 
 .nutrition-item {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 0.75rem 0;
+    padding: 0.75rem 1.5rem;
     border-bottom: 2px solid #ecf0f1;
     font-weight: bold;
     color: #8F4A33;
-}
-
-.nutrition-item:last-child {
-    border-bottom: none;
-}
-
-.nutrition-label {
-    font-weight: normal;
-    color: #333;
-}
-
-.nutrition-value {
-    font-weight: bold;
-}
-
-
-h2 {
-    font-size: 1.5rem;
-    color: #34495e;
-    margin-bottom: 1rem;
-    padding-bottom: 0.5rem;
-}
-
-ul {
-    list-style: disc;
-    margin-left: 1.5rem;
-}
-
-ol {
-    list-style: decimal;
-    margin-left: 1.5rem;
-}
-
-strong {
-    color: #2c3e50;
+    text-align: left;
 }
