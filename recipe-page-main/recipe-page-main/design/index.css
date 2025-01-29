@@ -16,6 +16,8 @@ body {
     max-width: 700px; /* Limits width for better readability */
     margin: 2rem auto; /* Centers the container */
     padding: 2rem;
+    padding-left: 0;
+    padding-right: 0;
     background: #fff; /* White background for contrast */
     border-radius: 10px; /* Rounded corners */
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Adds a subtle shadow */
@@ -25,6 +27,7 @@ body {
 .recipe-header {
     text-align: left;
     margin-bottom: 2rem;
+    margin-top: 0;
     padding: 0 1.5rem;
     max-width: 85%; /* Matches width of other sections */
     margin-left: auto;
