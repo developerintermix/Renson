@@ -75,7 +75,7 @@ body {
 }
 
 /* Section Titles (Headings) */
-.prep-time h2, .ingredients h2, .instructions h2, .nutrition h2 {
+.prep-time h2 {
     font-family: 'Young Serif', serif;
     font-size: 1.4rem;
     font-weight: 400; /* Normal weight for Young Serif */
@@ -83,6 +83,16 @@ body {
     margin-bottom: 0.75rem;
     text-align: left;
 }
+
+.ingredients h2, .instructions h2, .nutrition h2 {
+    font-family: 'Young Serif', serif;
+    font-size: 1.4rem;
+    font-weight: 400; /* Normal weight for Young Serif */
+    color: #8F4A33; /* Dark orange */
+    margin-bottom: 0.75rem;
+    text-align: left;
+}
+
 
 /* Ingredients Section */
 .ingredients {
