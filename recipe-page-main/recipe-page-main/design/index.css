@@ -141,7 +141,7 @@ body {
 .nutrition {
     border-top: 2px solid #ccc; /* Adds a gray divider line */
     padding-top: 1rem;
-    color: #8F4A33; /* Dark purple text */
+    color: #000000; /* black text */
 }
 
 /* List Styling */
