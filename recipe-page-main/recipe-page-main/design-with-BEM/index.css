@@ -1,6 +1,23 @@
 @import url('https://fonts.googleapis.com/css2?family=Young+Serif&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&family=Young+Serif&display=swap');
 
+:root {
+    /* Primary Colors */
+    --primary-text: hsl(30, 10%, 34%);
+    --primary-bg: #F3E5D8;
+    --primary-heading: hsl(24, 5%, 18%);
+    --primary-accent: hsl(14, 45%, 36%);
+    
+    /* Secondary Colors */
+    --secondary-bg: #fff;
+    --secondary-accent: hsl(332, 51%, 32%);
+    --secondary-light-bg: hsl(330, 100%, 98%);
+    --secondary-border: hsl(30, 18%, 87%);
+    
+    /* Misc */
+    --grey-line: rgb(186, 183, 183);
+}
+
 *, *::before, *::after {
     margin: 0;
     padding: 0;
@@ -11,8 +28,8 @@ body {
     font-size: 16px;
     line-height: 1.5;
     -webkit-font-smoothing: antialiased;
-    background-color: #F3E5D8;
-    color: hsl(30, 10%, 34%);
+    background-color: var(--primary-bg);
+    color: var(--primary-text);
     font-family: 'Outfit', sans-serif;
     display: flex;
     justify-content: center;
@@ -23,7 +40,7 @@ body {
 
 .recipe {
     max-width: 752px;
-    background-color: #fff;
+    background-color: var(--secondary-bg);
     padding: 2rem;
     border-radius: 10px;
     display: flex;
@@ -39,24 +56,24 @@ body {
 .recipe__title {
     font-family: 'Young Serif', serif;
     font-size: 2.5rem;
-    color: hsl(24, 5%, 18%);
+    color: var(--primary-heading);
     font-weight: 400;
     margin-top: 0.5rem;
     margin-bottom: 0.5rem;
 }
 
 .recipe__description {
-    color: hsl(30, 10%, 34%);
+    color: var(--primary-text);
 }
 
 .recipe__prep-time {
-    background-color: hsl(330, 100%, 98%);
+    background-color: var(--secondary-light-bg);
     padding: 1rem;
     border-radius: 6px;
 }
 
 .prep-time__title {
-    color: hsl(332, 51%, 32%);
+    color: var(--secondary-accent);
     font-size: 1.2rem;
     font-weight: 600;
     margin-bottom: 0.5rem;
@@ -64,7 +81,7 @@ body {
 
 .prep-time__list {
     padding-left: 1.5rem;
-    color: hsl(30, 10%, 34%);
+    color: var(--primary-text);
 }
 
 .ingredients, .instructions, .nutrition {
@@ -77,7 +94,7 @@ body {
     font-family: 'Young Serif', serif;
     font-size: 1.7rem;
     font-weight: 400;
-    color: hsl(14, 45%, 36%);
+    color: var(--primary-accent);
 }
 
 ul, ol {
@@ -85,7 +102,7 @@ ul, ol {
 }
 
 ul li::marker, ol li::marker {
-    color: hsl(332, 51%, 32%);
+    color: var(--secondary-accent);
     font-weight: bold;
 }
 
@@ -95,16 +112,16 @@ ul li::marker, ol li::marker {
 
 .nutrition {
     display: grid;
-    grid-template-columns: 1fr; /* Ensures it remains a single-column section */
+    grid-template-columns: 1fr;
     gap: 1rem;
 }
 
 .nutrition__item {
     display: grid;
-    grid-template-columns: 1fr 1fr; /* Label takes one column, value takes another */
-    align-items: center; /* Centers content vertically */
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
     padding: 0.5rem 0;
-    border-bottom: 1px solid hsl(30, 18%, 87%);
+    border-bottom: 1px solid var(--secondary-border);
 }
 
 .nutrition__label {
@@ -113,25 +130,25 @@ ul li::marker, ol li::marker {
 }
 
 .nutrition__value {
-    text-align: left; /* Ensures all values align in a straight vertical line */
+    text-align: left;
     font-weight: bold;
-    color: hsl(14, 45%, 36%);
+    color: var(--primary-accent);
 }
 
-.nutrition__item--last {
+.nutrition__item--last { 
     display: grid;
-    grid-template-columns: 1fr 1fr; /* Label takes one column, value takes another */
-    align-items: center; /* Centers content vertically */
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
     padding: 0.5rem 0;
+    border-bottom: none; /* No border for last item */
 }
-
 
 hr {
-    border: 0;  /* Removes default border */
-    height: 1px;  /* Adjust the line thickness */
-    background-color: rgb(186, 183, 183);  /* Sets the line color */
-    margin: 0rem;  /* Adds space above and below the line */
-  }
+    border: 0;
+    height: 1px;
+    background-color: var(--grey-line);
+    margin: 0rem;
+}
 
 @media screen and (max-width: 768px) {
     body {
