@@ -1,23 +1,58 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Calculator</title>
-    <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+  <link rel="icon" type="image/png" sizes="32x32" href="../images/favicon-32x32.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@100..900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <title>Calculator App</title>
 </head>
-<body>
-    <header>
-        <h1>Calculator</h1>
-    </header>
-    <main>
-        <div id="calculator">
-            <!-- Calculator interface will go here -->
+<body id="bodyy">
+  <div class="calculator">
+    <div class="calculator__header">
+      <p class="calculator__logo" id="logo">
+        calc
+      </p>
+      <div class="calculator__switch">
+        <p class="theme" id="theme">THEME</p>
+        <div class="calculator__switch--barra" id="calculator__barra">
+          <p class="numbers" id="numbers">123</p>
+          <button class="calculator__switch-button" id="switch-button"></button>
         </div>
-    </main>
-    <footer>
-        <p>&copy; 2023 Calculator App</p>
-    </footer>
-    <script src="script.js"></script>
+      </div>
+    </div>
+
+    <div class="res" id="res">
+      0
+    </div>
+
+    <div class="table" id="table">
+      <div class="buttonBox">
+        <button class="btn7 button" id="bt7">7</button>
+        <button class="btn8 button" id="bt8">8</button>
+        <button class="btn9 button" id="bt9">9</button>
+        <button class="btnD button del_button" id="del">del</button>
+        <button class="btn4 button" id="bt4">4</button>
+        <button class="btn5 button" id="bt5">5</button>
+        <button class="btn6 button" id="bt6">6</button>
+        <button class="btn+ button" id="btplus">+</button>
+        <button class="btn1 button" id="bt1">1</button>
+        <button class="btn2 button" id="bt2">2</button>
+        <button class="btn3 button" id="bt3">3</button>
+        <button class="btn- button" id="btmenos">-</button>
+        <button class="btn. button" id="btpunto">.</button>
+        <button class="btn0 button" id="bt0">0</button>
+        <button class="btn/ button" id="btbarra">/</button>
+        <button class="btnx button" id="btequis">x</button>
+      </div>
+      <div class="buttonSub">
+        <button class="btnr button reset" id="reset">reset</button>
+        <button class="btnC button brest" id="equal">=</button>
+      </div>
+    </div>
+  <script src="main.js"></script>
 </body>
 </html>
