@@ -1,0 +1,175 @@
+@import url('https://fonts.googleapis.com/css2?family=League+Spartan:wght@100..900&display=swap');
+
+// Variables
+$primary-bg: #3b4664;
+$secondary-bg: #181f32;
+$button-bg: #eae3db;
+$button-shadow: #b4a497;
+$special-button: #647198;
+$special-shadow: #414e6a;
+$equal-button: #d13f30;
+$equal-shadow: #93261a;
+$text-color: white;
+
+body {
+  font-family: "League Spartan", sans-serif;
+  background-color: $primary-bg;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.calculator {
+  background-color: $primary-bg;
+  padding: 20px;
+  border-radius: 10px;
+  width: 450px;
+
+  &__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: $text-color;
+    font-size: 24px;
+    font-weight: bold;
+  }
+
+  &__switch {
+    display: flex;
+    flex-direction: column;  // Stack elements vertically
+    align-items: center;
+    gap: 10px;
+
+    .theme {
+      font-size: 12px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: $text-color;
+      
+    }
+
+    .numbers {
+      font-size: 16px; // Adjust as needed
+      color: $text-color;
+      text-align: center;
+      margin-bottom: 5px;  // Small space below the numbers
+    }
+
+    &--barra {
+      background-color: #252d44;
+      width: 60px;
+      height: 20px;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+    }
+
+    &-numbers {
+      width: 20px;
+      height: 20px;
+      background-color: $equal-button;
+      border-radius: 50%;
+      position: absolute;
+      right: 5px;
+      transition: all 0.3s;
+    }
+
+    &-button {
+      width: 15px;
+      height: 15px;
+      background-color: $equal-button;
+      border-radius: 50%;
+      position: absolute;
+      left: 5px;
+      transition: all 0.3s;
+    }
+  }
+}
+
+
+.res {
+  background-color: $secondary-bg;
+  color: $text-color;
+  font-size: 70px;
+  text-align: right;
+  padding: 15px;
+  border-radius: 5px;
+  margin: 20px 0;
+}
+
+.table {
+  background-color: #252d44;
+  padding: 15px;
+  border-radius: 5px;
+  gap: 12px; // Adjusted spacing for even distribution
+
+  .buttonBox {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px; // Consistent spacing
+    
+    .button {
+      background-color: $button-bg;
+      border: none;
+      padding: 8px;
+      font-size: 30px;
+      font-weight: bold;
+      border-radius: 5px;
+      box-shadow: 0 4px $button-shadow;
+      cursor: pointer;
+      transition-duration: 0.4s;
+      text-transform: uppercase;
+      text-align: center;
+
+      &:hover {
+        background-color: aliceblue;
+      }
+
+      &:active {
+        transform: scale(0.95);
+      }
+    }
+
+    .del_button {
+      background-color: $special-button;
+      box-shadow: 0 4px $special-shadow;
+      color: $text-color;
+    }
+  }
+
+  .buttonSub {
+    display: grid;
+    grid-row: 5;
+    grid-template-columns: repeat(4, 1fr); // Two equal columns
+    gap: 20px;
+    margin-top: 20px;
+    
+    .reset {
+      grid-column: span 2;
+      background-color: $special-button;
+      box-shadow: 0 4px $special-shadow;
+      border-radius: 5px;
+      color: $text-color;
+      padding: 18px;
+      font-size: 18px;
+      width: 100%; // Makes it span 2 columns
+      text-align: center;
+    }
+
+    .brest {
+      grid-column: span 2;
+      background-color: $equal-button;
+      box-shadow: 0 4px $equal-shadow;
+      border-radius: 5px;
+      color: $text-color;
+      padding: 18px;
+      
+      font-size: 18px;
+      width: 100%;
+      text-align: center;
+    }
+  }
+}
