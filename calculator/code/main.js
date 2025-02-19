@@ -1,95 +1,109 @@
-document.addEventListener("DOMContentLoaded", () => {
-    const display = document.getElementById("res");
-    let currentInput = "";
-    let operator = "";
-    let firstOperand = "";
-    let shouldResetScreen = false;
+let currentTheme = 1;
+let currentNumber = "0";
+let previousNumber = "";
+let operation = null;
+let shouldResetScreen = false;
 
-    const updateDisplay = () => {
-        display.textContent = currentInput || "0";
-    };
+const display = document.querySelector(".display");
+const themeToggle = document.querySelector(".theme-toggle");
+const toggleBall = document.querySelector(".toggle-ball");
 
-    const appendNumber = (num) => {
-        if (shouldResetScreen) {
-            currentInput = "";
-            shouldResetScreen = false;
-        }
-        currentInput += num;
-        updateDisplay();
-    };
-
-    const setOperator = (op) => {
-        if (currentInput === "") return;
-        if (firstOperand !== "") calculate();
-        operator = op;
-        firstOperand = currentInput;
-        currentInput = "";
-    };
-
-    const calculate = () => {
-        if (firstOperand === "" || operator === "" || currentInput === "") return;
-        let result;
-        const a = parseFloat(firstOperand);
-        const b = parseFloat(currentInput);
-
-        switch (operator) {
-            case "+":
-                result = a + b;
-                break;
-            case "-":
-                result = a - b;
-                break;
-            case "x":
-                result = a * b;
-                break;
-            case "/":
-                result = b !== 0 ? a / b : "Error";
-                break;
-            default:
-                return;
-        }
-
-        currentInput = result.toString();
-        operator = "";
-        firstOperand = "";
-        shouldResetScreen = true;
-        updateDisplay();
-    };
-
-    const resetCalculator = () => {
-        currentInput = "";
-        firstOperand = "";
-        operator = "";
-        shouldResetScreen = false;
-        updateDisplay();
-    };
-
-    const deleteLast = () => {
-        currentInput = currentInput.slice(0, -1);
-        updateDisplay();
-    };
-
-    document.getElementById("bt0").addEventListener("click", () => appendNumber("0"));
-    document.getElementById("bt1").addEventListener("click", () => appendNumber("1"));
-    document.getElementById("bt2").addEventListener("click", () => appendNumber("2"));
-    document.getElementById("bt3").addEventListener("click", () => appendNumber("3"));
-    document.getElementById("bt4").addEventListener("click", () => appendNumber("4"));
-    document.getElementById("bt5").addEventListener("click", () => appendNumber("5"));
-    document.getElementById("bt6").addEventListener("click", () => appendNumber("6"));
-    document.getElementById("bt7").addEventListener("click", () => appendNumber("7"));
-    document.getElementById("bt8").addEventListener("click", () => appendNumber("8"));
-    document.getElementById("bt9").addEventListener("click", () => appendNumber("9"));
-    document.getElementById("btpunto").addEventListener("click", () => {
-        if (!currentInput.includes(".")) appendNumber(".");
-    });
-
-    document.getElementById("btplus").addEventListener("click", () => setOperator("+"));
-    document.getElementById("btmenos").addEventListener("click", () => setOperator("-"));
-    document.getElementById("btequis").addEventListener("click", () => setOperator("x"));
-    document.getElementById("btbarra").addEventListener("click", () => setOperator("/"));
-    document.getElementById("equal").addEventListener("click", calculate);
-    document.getElementById("reset").addEventListener("click", resetCalculator);
-    document.getElementById("del").addEventListener("click", deleteLast);
-
-    updateDisplay();
+// Theme switching
+themeToggle.addEventListener("click", () => {
+  currentTheme = (currentTheme % 3) + 1;
+  document.body.className = `theme-${currentTheme}`;
+  toggleBall.style.left = `${(currentTheme - 1) * 25 + 5}px`;
 });
+
+// Calculator functionality
+function updateDisplay() {
+  display.textContent = currentNumber;
+}
+
+function appendNumber(number) {
+  if (shouldResetScreen) {
+    currentNumber = "";
+    shouldResetScreen = false;
+  }
+  if (currentNumber === "0" && number !== ".") {
+    currentNumber = number;
+  } else {
+    currentNumber += number;
+  }
+  updateDisplay();
+}
+
+function handleOperation(op) {
+  if (operation !== null) calculate();
+  previousNumber = currentNumber;
+  operation = op;
+  shouldResetScreen = true;
+}
+
+function calculate() {
+  let result;
+  const prev = parseFloat(previousNumber);
+  const current = parseFloat(currentNumber);
+
+  if (isNaN(prev) || isNaN(current)) return;
+
+  switch (operation) {
+    case "+":
+      result = prev + current;
+      break;
+    case "-":
+      result = prev - current;
+      break;
+    case "x":
+      result = prev * current;
+      break;
+    case "/":
+      if (current === 0) {
+        alert("Cannot divide by zero!");
+        return;
+      }
+      result = prev / current;
+      break;
+    default:
+      return;
+  }
+
+  currentNumber = result.toString();
+  operation = null;
+  updateDisplay();
+}
+
+function reset() {
+  currentNumber = "0";
+  previousNumber = "";
+  operation = null;
+  updateDisplay();
+}
+
+function deleteNumber() {
+  if (currentNumber.length === 1) {
+    currentNumber = "0";
+  } else {
+    currentNumber = currentNumber.slice(0, -1);
+  }
+  updateDisplay();
+}
+
+// Event listeners
+document.querySelectorAll(".num").forEach((button) => {
+  button.addEventListener("click", () => {
+    if (button.textContent === "." && currentNumber.includes(".")) return;
+    appendNumber(button.textContent);
+  });
+});
+
+document.querySelectorAll(".op").forEach((button) => {
+  button.addEventListener("click", () => handleOperation(button.textContent));
+});
+
+document.querySelector(".equals").addEventListener("click", () => {
+  if (operation) calculate();
+});
+
+document.querySelector(".reset").addEventListener("click", reset);
+document.querySelector(".del").addEventListener("click", deleteNumber);

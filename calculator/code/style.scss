@@ -1,175 +1,247 @@
-@import url('https://fonts.googleapis.com/css2?family=League+Spartan:wght@100..900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=League+Spartan:wght@100..900&family=Manrope:wght@200..800&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap");
 
-// Variables
-$primary-bg: #3b4664;
-$secondary-bg: #181f32;
-$button-bg: #eae3db;
-$button-shadow: #b4a497;
-$special-button: #647198;
-$special-shadow: #414e6a;
-$equal-button: #d13f30;
-$equal-shadow: #93261a;
-$text-color: white;
+:root {
+  /* Theme 1 - Dark blue */
+  --bg-main-1: #3a4764;
+  --bg-toggle-1: #232c43;
+  --bg-screen-1: #182034;
+  --key-bg-1: #eae3dc;
+  --key-shadow-1: #b4a597;
+  --key-bg-red-1: #637097;
+  --key-shadow-red-1: #404e72;
+  --key-bg-equals-1: #d03f2f;
+  --key-shadow-equals-1: #93261a;
+  --text-dark-1: #444b5a;
+  --text-light-1: #ffffff;
+  --key-hover-1: #ffffff;
+  --key-hover-red-1: #9dafdd;
+  --key-hover-equals-1: #cf6a5f;
+
+  /* Theme 2 - Light gray */
+  --bg-main-2: #e6e6e6;
+  --bg-toggle-2: #d3cdcd;
+  --bg-screen-2: #eeeeee;
+  --key-bg-2: #e5e4e1;
+  --key-shadow-2: #a79e91;
+  --key-bg-red-2: #388187;
+  --key-shadow-red-2: #1b6066;
+  --key-bg-equals-2: #c85402;
+  --key-shadow-equals-2: #873901;
+  --text-dark-2: #35352c;
+  --text-light-2: #ffffff;
+  --key-hover-2: #ffffff;
+  --key-hover-red-2: #36d1df;
+  --key-hover-equals-2: #ed873f;
+
+  /* Theme 3 - Purple */
+  --bg-main-3: #17062a;
+  --bg-toggle-3: #1e0936;
+  --bg-screen-3: #1e0936;
+  --key-bg-3: #331c4d;
+  --key-shadow-3: #881c9e;
+  --key-bg-red-3: #56077c;
+  --key-shadow-red-3: #be15f4;
+  --key-bg-equals-3: #00e0d1;
+  --key-shadow-equals-3: #6cf9f2;
+  --text-dark-3: #ffe53d;
+  --text-light-3: #ffffff;
+  --key-hover-3: #6a34a2;
+  --key-hover-red-3: #be15f4;
+  --key-hover-equals-3: #6cf9f2;
+}
 
 body {
-  font-family: "League Spartan", sans-serif;
-  background-color: $primary-bg;
+  margin: 0;
+  min-height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
+  font-family: "League Spartan", sans-serif;
+  background-color: var(--bg-main-1);
+  transition: background-color 0.3s;
+
+  &.theme-2 {
+    --bg-main-1: var(--bg-main-2);
+    --bg-toggle-1: var(--bg-toggle-2);
+    --bg-screen-1: var(--bg-screen-2);
+    --key-bg-1: var(--key-bg-2);
+    --key-shadow-1: var(--key-shadow-2);
+    --key-bg-red-1: var(--key-bg-red-2);
+    --key-shadow-red-1: var(--key-shadow-red-2);
+    --key-bg-equals-1: var(--key-bg-equals-2);
+    --key-shadow-equals-1: var(--key-shadow-equals-2);
+    --text-dark-1: var(--text-dark-2);
+    --text-light-1: var(--text-dark-2);
+    --key-hover-1: var(--key-hover-2);
+    --key-hover-red-1: var(--key-hover-red-2);
+    --key-hover-equals-1: var(--key-hover-equals-2);
+  }
+
+  &.theme-3 {
+    --bg-main-1: var(--bg-main-3);
+    --bg-toggle-1: var(--bg-toggle-3);
+    --bg-screen-1: var(--bg-screen-3);
+    --key-bg-1: var(--key-bg-3);
+    --key-shadow-1: var(--key-shadow-3);
+    --key-bg-red-1: var(--key-bg-red-3);
+    --key-shadow-red-1: var(--key-shadow-red-3);
+    --key-bg-equals-1: var(--key-bg-equals-3);
+    --key-shadow-equals-1: var(--key-shadow-equals-3);
+    --text-dark-1: var(--text-dark-3);
+    --text-light-1: var(--text-dark-3);
+    --key-hover-1: var(--key-hover-3);
+    --key-hover-red-1: var(--key-hover-red-3);
+    --key-hover-equals-1: var(--key-hover-equals-3);
+  }
 }
 
 .calculator {
-  background-color: $primary-bg;
-  padding: 20px;
-  border-radius: 10px;
-  width: 450px;
+  width: 100%;
+  max-width: 540px;
+  padding: 2rem;
 
-  &__header {
+  .header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    color: $text-color;
-    font-size: 24px;
-    font-weight: bold;
+    color: var(--text-light-1);
+
+    h1 {
+      margin: 0;
+      font-size: 2rem;
+      font-weight: 700;
+    }
   }
 
-  &__switch {
+  .theme-switcher {
     display: flex;
-    flex-direction: column;  // Stack elements vertically
     align-items: center;
-    gap: 10px;
+    gap: 1rem;
+    font-size: 0.75rem;
+    font-weight: 700;
+  }
 
-    .theme {
-      font-size: 12px;
-      letter-spacing: 1px;
-      text-transform: uppercase;
-      color: $text-color;
-      
-    }
+  .theme-numbers {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 5px;
+    font-weight: 700;
+  }
 
-    .numbers {
-      font-size: 16px; // Adjust as needed
-      color: $text-color;
-      text-align: center;
-      margin-bottom: 5px;  // Small space below the numbers
-    }
+  .theme-toggle {
+    width: 70px;
+    height: 25px;
+    background-color: var(--bg-toggle-1);
+    border-radius: 25px;
+    position: relative;
+    cursor: pointer;
 
-    &--barra {
-      background-color: #252d44;
-      width: 60px;
-      height: 20px;
-      border-radius: 10px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      position: relative;
-    }
-
-    &-numbers {
-      width: 20px;
-      height: 20px;
-      background-color: $equal-button;
-      border-radius: 50%;
-      position: absolute;
-      right: 5px;
-      transition: all 0.3s;
-    }
-
-    &-button {
+    .toggle-ball {
       width: 15px;
       height: 15px;
-      background-color: $equal-button;
+      background-color: var(--key-bg-equals-1);
       border-radius: 50%;
       position: absolute;
+      top: 5px;
       left: 5px;
-      transition: all 0.3s;
-    }
-  }
-}
-
-
-.res {
-  background-color: $secondary-bg;
-  color: $text-color;
-  font-size: 70px;
-  text-align: right;
-  padding: 15px;
-  border-radius: 5px;
-  margin: 20px 0;
-}
-
-.table {
-  background-color: #252d44;
-  padding: 15px;
-  border-radius: 5px;
-  gap: 12px; // Adjusted spacing for even distribution
-
-  .buttonBox {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 20px; // Consistent spacing
-    
-    .button {
-      background-color: $button-bg;
-      border: none;
-      padding: 8px;
-      font-size: 30px;
-      font-weight: bold;
-      border-radius: 5px;
-      box-shadow: 0 4px $button-shadow;
-      cursor: pointer;
-      transition-duration: 0.4s;
-      text-transform: uppercase;
-      text-align: center;
+      transition: left 0.3s;
 
       &:hover {
-        background-color: aliceblue;
+        background-color: var(--key-hover-equals-1); // Darker shade on hover
       }
-
-      &:active {
-        transform: scale(0.95);
-      }
-    }
-
-    .del_button {
-      background-color: $special-button;
-      box-shadow: 0 4px $special-shadow;
-      color: $text-color;
     }
   }
 
-  .buttonSub {
+  .display {
+    background-color: var(--bg-screen-1);
+    color: var(--text-light-1);
+    padding: 2rem;
+    text-align: right;
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin: 1.5rem 0;
+    border-radius: 10px;
+    min-height: 2.5rem;
+    overflow-x: auto;
+    white-space: nowrap;
+  }
+
+  .keypad {
+    background-color: var(--bg-toggle-1);
+    padding: 1.5rem;
+    border-radius: 10px;
     display: grid;
-    grid-row: 5;
-    grid-template-columns: repeat(4, 1fr); // Two equal columns
-    gap: 20px;
-    margin-top: 20px;
-    
-    .reset {
-      grid-column: span 2;
-      background-color: $special-button;
-      box-shadow: 0 4px $special-shadow;
-      border-radius: 5px;
-      color: $text-color;
-      padding: 18px;
-      font-size: 18px;
-      width: 100%; // Makes it span 2 columns
-      text-align: center;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+
+    button {
+      border: none;
+      border-radius: 10px;
+      padding: 1rem;
+      font-size: 2rem;
+      font-weight: 700;
+      cursor: pointer;
+      background-color: var(--key-bg-1);
+      color: var(--text-dark-1);
+      box-shadow: 0 4px var(--key-shadow-1);
+      font-family: "League Spartan", sans-serif;
+      width: 85%;
+      height: 90%;
+
+      &:hover {
+        background-color: var(--key-hover-1)
+      }
+
+      &.del,
+      &.reset {
+        background-color: var(--key-bg-red-1);
+        color: white;
+        box-shadow: 0 4px var(--key-shadow-red-1);
+        font-size: 1.2rem;
+      
+        &:hover {
+          background-color: var(--key-hover-red-1); // Darker shade on hover
+        }
+      }    
+
+      &.reset {
+        grid-column: span 2 / span 2;
+        width: 95%;
+      }
+
+      &.equals {
+        background-color: var(--key-bg-equals-1);
+        color: var(--key-bg-1);
+        box-shadow: 0 4px var(--key-shadow-equals-1);
+        grid-column: span 2 / span 2;
+        grid-column-start: 3;
+        width: 95%;
+        
+        &:hover {
+          background-color: var(--key-hover-equals-1); // Darker shade on hover
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .calculator {
+    padding: 1rem;
+
+    .keypad {
+      gap: 0.75rem;
+      padding: 1rem;
     }
 
-    .brest {
-      grid-column: span 2;
-      background-color: $equal-button;
-      box-shadow: 0 4px $equal-shadow;
-      border-radius: 5px;
-      color: $text-color;
-      padding: 18px;
-      
-      font-size: 18px;
-      width: 100%;
-      text-align: center;
+    button {
+      font-size: 1.25rem;
+      padding: 0.75rem;
+    }
+
+    .display {
+      font-size: 2rem;
+      padding: 1.5rem;
     }
   }
 }
