@@ -1,97 +1,118 @@
-@import url("https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=League+Spartan:wght@100..900&family=Manrope:wght@200..800&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@100..900&family=League+Spartan:wght@100..900&family=Manrope:wght@200..800&family=Raleway:wght@100..900&display=swap");
 
+// Mixins for reusable styles
+@mixin key-styles($bg, $shadow, $color, $hover) {
+  background-color: $bg;
+  box-shadow: 0 4px $shadow;
+  color: $color;
+
+  &:hover {
+    background-color: $hover;
+  }
+}
+
+@mixin flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@mixin theme-variables($main, $toggle, $screen, $key, $shadow, $key-red, $shadow-red, $key-equals, $shadow-equals, $text-dark, $text-light, $hover, $hover-red, $hover-equals) {
+  --bg-main-1: #{$main};
+  --bg-toggle-1: #{$toggle};
+  --bg-screen-1: #{$screen};
+  --key-bg-1: #{$key};
+  --key-shadow-1: #{$shadow};
+  --key-bg-red-1: #{$key-red};
+  --key-shadow-red-1: #{$shadow-red};
+  --key-bg-equals-1: #{$key-equals};
+  --key-shadow-equals-1: #{$shadow-equals};
+  --text-dark-1: #{$text-dark};
+  --text-light-1: #{$text-light};
+  --key-hover-1: #{$hover};
+  --key-hover-red-1: #{$hover-red};
+  --key-hover-equals-1: #{$hover-equals};
+}
+
+// Theme Variables
 :root {
-  /* Theme 1 - Dark blue */
-  --bg-main-1: #3a4764;
-  --bg-toggle-1: #232c43;
-  --bg-screen-1: #182034;
-  --key-bg-1: #eae3dc;
-  --key-shadow-1: #b4a597;
-  --key-bg-red-1: #637097;
-  --key-shadow-red-1: #404e72;
-  --key-bg-equals-1: #d03f2f;
-  --key-shadow-equals-1: #93261a;
-  --text-dark-1: #444b5a;
-  --text-light-1: #ffffff;
-  --key-hover-1: #ffffff;
-  --key-hover-red-1: #9dafdd;
-  --key-hover-equals-1: #cf6a5f;
-
-  /* Theme 2 - Light gray */
-  --bg-main-2: #e6e6e6;
-  --bg-toggle-2: #d3cdcd;
-  --bg-screen-2: #eeeeee;
-  --key-bg-2: #e5e4e1;
-  --key-shadow-2: #a79e91;
-  --key-bg-red-2: #388187;
-  --key-shadow-red-2: #1b6066;
-  --key-bg-equals-2: #c85402;
-  --key-shadow-equals-2: #873901;
-  --text-dark-2: #35352c;
-  --text-light-2: #ffffff;
-  --key-hover-2: #ffffff;
-  --key-hover-red-2: #36d1df;
-  --key-hover-equals-2: #ed873f;
-
-  /* Theme 3 - Purple */
-  --bg-main-3: #17062a;
-  --bg-toggle-3: #1e0936;
-  --bg-screen-3: #1e0936;
-  --key-bg-3: #331c4d;
-  --key-shadow-3: #881c9e;
-  --key-bg-red-3: #56077c;
-  --key-shadow-red-3: #be15f4;
-  --key-bg-equals-3: #00e0d1;
-  --key-shadow-equals-3: #6cf9f2;
-  --text-dark-3: #ffe53d;
-  --text-light-3: #ffffff;
-  --key-hover-3: #6a34a2;
-  --key-hover-red-3: #be15f4;
-  --key-hover-equals-3: #6cf9f2;
+  @include theme-variables(
+    #3a4764, #232c43, #182034, 
+    #eae3dc, #b4a597, #637097, 
+    #404e72, #d03f2f, #93261a, 
+    #444b5a, #ffffff, #ffffff, 
+    #9dafdd, #cf6a5f
+  );
 }
 
 body {
   margin: 0;
   min-height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  @include flex-center;
   font-family: "League Spartan", sans-serif;
   background-color: var(--bg-main-1);
   transition: background-color 0.3s;
 
   &.theme-2 {
-    --bg-main-1: var(--bg-main-2);
-    --bg-toggle-1: var(--bg-toggle-2);
-    --bg-screen-1: var(--bg-screen-2);
-    --key-bg-1: var(--key-bg-2);
-    --key-shadow-1: var(--key-shadow-2);
-    --key-bg-red-1: var(--key-bg-red-2);
-    --key-shadow-red-1: var(--key-shadow-red-2);
-    --key-bg-equals-1: var(--key-bg-equals-2);
-    --key-shadow-equals-1: var(--key-shadow-equals-2);
-    --text-dark-1: var(--text-dark-2);
-    --text-light-1: var(--text-dark-2);
-    --key-hover-1: var(--key-hover-2);
-    --key-hover-red-1: var(--key-hover-red-2);
-    --key-hover-equals-1: var(--key-hover-equals-2);
+    @include theme-variables(
+      #e6e6e6, #d3cdcd, #eeeeee, 
+      #e5e4e1, #a79e91, #388187, 
+      #1b6066, #c85402, #873901, 
+      #35352c, #ffffff, #ffffff, 
+      #36d1df, #ed873f
+    );
   }
 
   &.theme-3 {
-    --bg-main-1: var(--bg-main-3);
-    --bg-toggle-1: var(--bg-toggle-3);
-    --bg-screen-1: var(--bg-screen-3);
-    --key-bg-1: var(--key-bg-3);
-    --key-shadow-1: var(--key-shadow-3);
-    --key-bg-red-1: var(--key-bg-red-3);
-    --key-shadow-red-1: var(--key-shadow-red-3);
-    --key-bg-equals-1: var(--key-bg-equals-3);
-    --key-shadow-equals-1: var(--key-shadow-equals-3);
-    --text-dark-1: var(--text-dark-3);
-    --text-light-1: var(--text-dark-3);
-    --key-hover-1: var(--key-hover-3);
-    --key-hover-red-1: var(--key-hover-red-3);
-    --key-hover-equals-1: var(--key-hover-equals-3);
+    @include theme-variables(
+      #17062a, #1e0936, #1e0936, 
+      #331c4d, #881c9e, #56077c, 
+      #be15f4, #00e0d1, #6cf9f2, 
+      #ffe53d, #ffffff, #6a34a2, 
+      #9e1aca, #6cf9f2
+    );
+  }
+}
+
+// Theme 2 specific styles
+body.theme-2 {
+  @include theme-variables(
+    #e6e6e6, #d3cdcd, #eeeeee, 
+    #e5e4e1, #a79e91, #388187, 
+    #1b6066, #c85402, #873901, 
+    #35352c, #ffffff, #ffffff, 
+    #36d1df, #ed873f
+  );
+
+  // New color changes for theme-2
+  .calculator {
+    &__title, 
+    .theme-switcher__label,
+    .theme-switcher__numbers,
+    &__display {
+      color: var(--text-dark-1); // Black for theme-2
+    }
+  }
+}
+
+// Theme 3 specific styles
+body.theme-3 {
+  @include theme-variables(
+    #17062a, #1e0936, #1e0936, 
+    #331c4d, #881c9e, #56077c, 
+    #be15f4, #00e0d1, #6cf9f2, 
+    #ffe53d, #ffffff, #6a34a2, 
+    #9e1aca, #6cf9f2
+  );
+
+  // New color changes for theme-3
+  .calculator {
+    &__title, 
+    .theme-switcher__label,
+    .theme-switcher__numbers,
+    &__display {
+      color: var(--text-dark-1); // Yellow for theme-3
+    }
   }
 }
 
@@ -100,59 +121,20 @@ body {
   max-width: 540px;
   padding: 2rem;
 
-  .header {
+  &__header {
     display: flex;
     justify-content: space-between;
     align-items: center;
     color: var(--text-light-1);
-
-    h1 {
-      margin: 0;
-      font-size: 2rem;
-      font-weight: 700;
-    }
   }
 
-  .theme-switcher {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-    font-size: 0.75rem;
+  &__title {
+    margin: 0;
+    font-size: 2rem;
     font-weight: 700;
   }
 
-  .theme-numbers {
-    display: flex;
-    justify-content: space-around;
-    margin-bottom: 5px;
-    font-weight: 700;
-  }
-
-  .theme-toggle {
-    width: 70px;
-    height: 25px;
-    background-color: var(--bg-toggle-1);
-    border-radius: 25px;
-    position: relative;
-    cursor: pointer;
-
-    .toggle-ball {
-      width: 15px;
-      height: 15px;
-      background-color: var(--key-bg-equals-1);
-      border-radius: 50%;
-      position: absolute;
-      top: 5px;
-      left: 5px;
-      transition: left 0.3s;
-
-      &:hover {
-        background-color: var(--key-hover-equals-1); // Darker shade on hover
-      }
-    }
-  }
-
-  .display {
+  &__display {
     background-color: var(--bg-screen-1);
     color: var(--text-light-1);
     padding: 2rem;
@@ -166,60 +148,96 @@ body {
     white-space: nowrap;
   }
 
-  .keypad {
+  &__keypad {
     background-color: var(--bg-toggle-1);
     padding: 1.5rem;
     border-radius: 10px;
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 1rem;
+  }
 
-    button {
-      border: none;
-      border-radius: 10px;
-      padding: 1rem;
-      font-size: 2rem;
-      font-weight: 700;
-      cursor: pointer;
-      background-color: var(--key-bg-1);
-      color: var(--text-dark-1);
-      box-shadow: 0 4px var(--key-shadow-1);
-      font-family: "League Spartan", sans-serif;
-      width: 85%;
-      height: 90%;
+  &__key {
+    @include key-styles(var(--key-bg-1), var(--key-shadow-1), var(--text-dark-1), var(--key-hover-1));
+    border: none;
+    border-radius: 10px;
+    padding: 1rem;
+    font-size: 2rem;
+    font-weight: 700;
+    cursor: pointer;
+    font-family: "League Spartan", sans-serif;
+    width: 85%;
+    height: 90%;
+
+    &--del,
+    &--reset {
+      @include key-styles(var(--key-bg-red-1), var(--key-shadow-red-1), white, var(--key-hover-red-1));
+      font-size: 1.2rem;
+    }
+
+    &--reset {
+      grid-column: span 2 / span 2;
+      width: 95%;
+    }
+
+    &--equals {
+      @include key-styles(var(--key-bg-equals-1), var(--key-shadow-equals-1), var(--key-bg-1), var(--key-hover-equals-1));
+      grid-column: span 2 / span 2;
+      grid-column-start: 3;
+      width: 95%;
+    }
+  }
+}
+
+.theme-switcher {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  font-size: 0.75rem;
+  font-weight: 700;
+
+  &__label {
+    font-weight: 700;
+  }
+
+  &__options {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  &__numbers {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 5px;
+    font-weight: 700;
+  }
+
+  &__number {
+    margin: 0 5px;
+    padding: 0.3rem;
+  }
+
+  &__toggle {
+    width: 70px;
+    height: 25px;
+    background-color: var(--bg-toggle-1);
+    border-radius: 25px;
+    position: relative;
+    cursor: pointer;
+
+    &-ball {
+      width: 15px;
+      height: 15px;
+      background-color: var(--key-bg-equals-1);
+      border-radius: 50%;
+      position: absolute;
+      top: 5px;
+      left: 5px;
+      transition: left 0.3s;
 
       &:hover {
-        background-color: var(--key-hover-1)
-      }
-
-      &.del,
-      &.reset {
-        background-color: var(--key-bg-red-1);
-        color: white;
-        box-shadow: 0 4px var(--key-shadow-red-1);
-        font-size: 1.2rem;
-      
-        &:hover {
-          background-color: var(--key-hover-red-1); // Darker shade on hover
-        }
-      }    
-
-      &.reset {
-        grid-column: span 2 / span 2;
-        width: 95%;
-      }
-
-      &.equals {
-        background-color: var(--key-bg-equals-1);
-        color: var(--key-bg-1);
-        box-shadow: 0 4px var(--key-shadow-equals-1);
-        grid-column: span 2 / span 2;
-        grid-column-start: 3;
-        width: 95%;
-        
-        &:hover {
-          background-color: var(--key-hover-equals-1); // Darker shade on hover
-        }
+        background-color: var(--key-hover-equals-1);
       }
     }
   }
@@ -229,17 +247,17 @@ body {
   .calculator {
     padding: 1rem;
 
-    .keypad {
+    &__keypad {
       gap: 0.75rem;
       padding: 1rem;
     }
 
-    button {
+    &__key {
       font-size: 1.25rem;
       padding: 0.75rem;
     }
 
-    .display {
+    &__display {
       font-size: 2rem;
       padding: 1.5rem;
     }
