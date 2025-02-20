@@ -26,38 +26,6 @@ body {
   background-color: var(--bg-main-1);
   transition: background-color 0.3s;
 }
-body.theme-2 {
-  --bg-main-1: #e6e6e6;
-  --bg-toggle-1: #d3cdcd;
-  --bg-screen-1: #eeeeee;
-  --key-bg-1: #e5e4e1;
-  --key-shadow-1: #a79e91;
-  --key-bg-red-1: #388187;
-  --key-shadow-red-1: #1b6066;
-  --key-bg-equals-1: #c85402;
-  --key-shadow-equals-1: #873901;
-  --text-dark-1: #35352c;
-  --text-light-1: #ffffff;
-  --key-hover-1: #ffffff;
-  --key-hover-red-1: #36d1df;
-  --key-hover-equals-1: #ed873f;
-}
-body.theme-3 {
-  --bg-main-1: #17062a;
-  --bg-toggle-1: #1e0936;
-  --bg-screen-1: #1e0936;
-  --key-bg-1: #331c4d;
-  --key-shadow-1: #881c9e;
-  --key-bg-red-1: #56077c;
-  --key-shadow-red-1: #be15f4;
-  --key-bg-equals-1: #00e0d1;
-  --key-shadow-equals-1: #6cf9f2;
-  --text-dark-1: #ffe53d;
-  --text-light-1: #ffffff;
-  --key-hover-1: #6a34a2;
-  --key-hover-red-1: #9e1aca;
-  --key-hover-equals-1: #6cf9f2;
-}
 
 body.theme-2 {
   --bg-main-1: #e6e6e6;
@@ -75,6 +43,7 @@ body.theme-2 {
   --key-hover-red-1: #36d1df;
   --key-hover-equals-1: #ed873f;
 }
+
 body.theme-2 .calculator__title,
 body.theme-2 .calculator .theme-switcher__label,
 body.theme-2 .calculator .theme-switcher__numbers, body.theme-2 .calculator__display {
@@ -101,6 +70,11 @@ body.theme-3 .calculator__title,
 body.theme-3 .calculator .theme-switcher__label,
 body.theme-3 .calculator .theme-switcher__numbers, body.theme-3 .calculator__display {
   color: var(--text-dark-1);
+}
+body.theme-3 body.theme-1 .calculator__title,
+body.theme-3 body.theme-1 .calculator .theme-switcher__label,
+body.theme-3 body.theme-1 .calculator .theme-switcher__numbers, body.theme-3 body.theme-1 .calculator__display {
+  color: var(--text-light-1);
 }
 
 .calculator {

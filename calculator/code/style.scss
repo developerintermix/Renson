@@ -52,29 +52,9 @@ body {
   font-family: "League Spartan", sans-serif;
   background-color: var(--bg-main-1);
   transition: background-color 0.3s;
-
-  &.theme-2 {
-    @include theme-variables(
-      #e6e6e6, #d3cdcd, #eeeeee, 
-      #e5e4e1, #a79e91, #388187, 
-      #1b6066, #c85402, #873901, 
-      #35352c, #ffffff, #ffffff, 
-      #36d1df, #ed873f
-    );
-  }
-
-  &.theme-3 {
-    @include theme-variables(
-      #17062a, #1e0936, #1e0936, 
-      #331c4d, #881c9e, #56077c, 
-      #be15f4, #00e0d1, #6cf9f2, 
-      #ffe53d, #ffffff, #6a34a2, 
-      #9e1aca, #6cf9f2
-    );
-  }
 }
 
-// Theme 2 specific styles
+// Theme-based Variables
 body.theme-2 {
   @include theme-variables(
     #e6e6e6, #d3cdcd, #eeeeee, 
@@ -83,17 +63,17 @@ body.theme-2 {
     #35352c, #ffffff, #ffffff, 
     #36d1df, #ed873f
   );
+}
 
-  // New color changes for theme-2
-  .calculator {
-    &__title, 
-    .theme-switcher__label,
-    .theme-switcher__numbers,
-    &__display {
-      color: var(--text-dark-1); // Black for theme-2
-    }
+body.theme-2 .calculator {
+  &__title,
+  .theme-switcher__label,
+  .theme-switcher__numbers,
+  &__display {
+    color: var(--text-dark-1); // Ensure it becomes black in theme 2
   }
 }
+
 
 // Theme 3 specific styles
 body.theme-3 {
@@ -105,13 +85,22 @@ body.theme-3 {
     #9e1aca, #6cf9f2
   );
 
-  // New color changes for theme-3
   .calculator {
     &__title, 
     .theme-switcher__label,
     .theme-switcher__numbers,
     &__display {
-      color: var(--text-dark-1); // Yellow for theme-3
+      color: var(--text-dark-1); // Default for theme 2 and 3
+    }
+  }
+  
+  // Override text color for theme 1
+  body.theme-1 .calculator {
+    &__title, 
+    .theme-switcher__label,
+    .theme-switcher__numbers,
+    &__display {
+      color: var(--text-light-1);
     }
   }
 }
