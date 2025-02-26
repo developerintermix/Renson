@@ -1,0 +1,161 @@
+/* Import Google Font */
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,wght@0,200..1000;1,200..1000&display=swap');
+
+:root {
+    --background-color: hsl(0, 0%, 98%);
+    --text-color: hsl(200, 15%, 8%);
+    --elements-color: hsl(0, 0%, 100%);
+    --shadow: rgba(0, 0, 0, 0.1);
+}
+
+body.dark {
+    --background-color: hsl(207, 26%, 17%);
+    --text-color: hsl(0, 0%, 100%);
+    --elements-color: hsl(209, 23%, 22%);
+    --shadow: rgba(0, 0, 0, 0.1);
+}
+
+// Theme Mode
+#theme-mode {
+    img {
+        filter: invert(1);
+        color: var(--text-color);
+        
+        &:last-child {
+            display: none;
+        }
+    }
+    
+    .dark & {
+        img {
+            &:first-child {
+                display: none;
+            }
+            &:last-child {
+                display: block;
+            }
+        }
+    }
+}
+
+// Global Reset
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: "Nunito Sans", sans-serif;
+}
+
+body {
+    background-color: var(--background-color);
+    color: var(--text-color);
+    transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
+}
+
+// Header
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--elements-color);
+    padding: 16px 24px;
+    box-shadow: 0px 2px 4px var(--shadow);
+    font-weight: 600;
+}
+
+.theme-mode button {
+    display: flex;
+    background: none;
+    border: none;
+    font-size: 1rem;
+    cursor: pointer;
+    color: inherit;
+}
+
+// Back Button
+.back {
+    padding: 24px;
+
+    button {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        padding: 8px 16px;
+        font-size: 16px;
+        border: none;
+        background-color: var(--elements-color);
+        color: var(--text-color);
+        box-shadow: 0px 2px 4px var(--shadow);
+        cursor: pointer;
+        border-radius: 4px;
+        transition: background-color 0.3s ease;
+
+        &:hover {
+            background-color: hsl(210, 22%, 30%);
+            color: white;
+        }
+    }
+}
+
+// Country Details Page
+#country-details {
+    padding: 24px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 40px;
+    justify-content: center;
+}
+
+.country-flag img {
+    width: 100%;
+    max-width: 500px;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0px 2px 6px var(--shadow);
+}
+
+.country-details-card {
+    max-width: 600px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+// Country Info
+.country-info {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+
+    div {
+        min-width: 250px;
+    }
+
+    p {
+        margin-bottom: 8px;
+    }
+}
+
+// Border Countries
+.border-countries {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 16px;
+
+    span {
+        background-color: var(--elements-color);
+        padding: 6px 12px;
+        box-shadow: 0px 2px 4px var(--shadow);
+        border-radius: 4px;
+        font-size: 14px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+
+        &:hover {
+            background-color: hsl(210, 22%, 30%);
+            color: white;
+        }
+    }
+}
