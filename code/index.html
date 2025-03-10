@@ -30,19 +30,14 @@
           />
         </div>
 
-        <select
-          class="filter-by-region"
-          name="Region"
-          id="Filter"
-          onchange="filter()"
-        >
-          <option hidden>Filter by Region</option>
+        <select class="filter-by-region" name="Region" id="Filter" onchange="filter()">
+          <option value="All">All Regions</option> <!-- Reset Option -->
           <option value="Africa">Africa</option>
           <option value="Asia">Asia</option>
           <option value="America">America</option>
           <option value="Europe">Europe</option>
           <option value="Oceania">Oceania</option>
-        </select>
+      </select>    
       </div>
 
       <div id="countries-components" class="countries-components"></div>

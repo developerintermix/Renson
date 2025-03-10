@@ -48,7 +48,7 @@ body.dark {
 body {
     background-color: var(--background-color);
     color: var(--text-color);
-    transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
+    transition: background-color .3s ease-in-out, color .3s ease-in-out;
 }
 
 // Container
@@ -67,6 +67,9 @@ body {
     background-color: var(--elements-color);
     padding: 16px 24px;
     box-shadow: 0px 2px 4px var(--shadow);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
 }
 
 .theme-mode {
@@ -86,6 +89,11 @@ body {
     justify-content: space-between;
     align-items: center;
     margin: 32px 0;
+    background-color: var(--background-color);
+    padding: 16px 24px;
+    position: sticky;
+    top: 70px;  // Adjusted to stay below the topbar
+    z-index: 999;
 }
 
 // Search Bar
@@ -126,6 +134,7 @@ body {
     font-size: 1rem;
     cursor: pointer;
 }
+
 
 // Countries Grid
 .countries-components {
@@ -179,7 +188,7 @@ body {
     }
 }
 
-@media (max-width: 768px) {
+@media screen and (max-width: 768px) {
     .header-content {
         flex-direction: column;
         text-align: center;

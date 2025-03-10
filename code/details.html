@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Country Details</title>
+    <link rel="stylesheet" href="style_details.css" />
+  </head>
+
+  <body >
+    <header class="topbar">
+      <div class="title"><h1>Where in the world?</h1></div>
+      <div class="theme-mode">
+        <button id="theme-mode">
+          <img src="../assets/lightmode.svg" alt="" />
+          <img src="../assets/darkmode.svg" alt="" />
+          Darkmode
+        </button>
+      </div>
+    </header>
+
+    <main class="container">
+      <div class="back">
+        <button onclick="goBack()">
+          <img src="../assets/back.svg" alt="" />Back
+        </button>
+      </div>
+      <div id="country-details"></div>
+    </main>
+    <script src="main.js"></script>
+  </body>
+</html>

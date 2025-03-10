@@ -53,6 +53,9 @@ body {
   background-color: var(--elements-color);
   padding: 16px 24px;
   box-shadow: 0px 2px 4px var(--shadow);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
 }
 
 .theme-mode button {
@@ -69,6 +72,11 @@ body {
   justify-content: space-between;
   align-items: center;
   margin: 32px 0;
+  background-color: var(--background-color);
+  padding: 16px 24px;
+  position: sticky;
+  top: 70px;
+  z-index: 999;
 }
 
 .search-container {
@@ -156,7 +164,7 @@ body {
     align-items: stretch;
   }
 }
-@media (max-width: 768px) {
+@media screen and (max-width: 768px) {
   .header-content {
     flex-direction: column;
     text-align: center;
