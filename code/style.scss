@@ -2,35 +2,35 @@
 
 :root {
     --background-color: white;
-    --text-color: black;
     --elements-color: white;
     --shadow: rgba(0, 0, 0, 0.1);
+    --text-color: black;
 }
 
 body.dark {
     --background-color: hsl(207, 26%, 17%);
-    --text-color: hsl(0, 0%, 100%);
     --elements-color: hsl(209, 23%, 22%);
     --shadow: rgba(0, 0, 0, 0.1);
+    --text-color: hsl(0, 0%, 100%);
 }
 
 // Theme Mode
-#theme-mode {
-    img {
+.theme-mode {  // #theme-mode -> .theme-mode
+    &__icon {  // img -> .theme-mode__icon
         filter: invert(1);
-        
-        &:last-child {
+
+        &--dark {  // &:last-child -> .theme-mode__icon--dark
             display: none;
         }
     }
 
     .dark & {
-        img {
-            &:first-child {
+        &__icon {
+            &--light {  // &:first-child -> .theme-mode__icon--light
                 display: none;
             }
 
-            &:last-child {
+            &--dark {
                 display: block;
             }
         }
@@ -40,81 +40,93 @@ body.dark {
 // General Reset
 * {
     box-sizing: border-box;
+    font-family: "Nunito Sans";
     margin: 0;
     padding: 0;
-    font-family: "Nunito Sans";
 }
 
 body {
     background-color: var(--background-color);
     color: var(--text-color);
-    transition: background-color .3s ease-in-out, color .3s ease-in-out;
+    transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
 }
 
 // Container
 .container {
-    max-width: 1200px;
     margin: 0 auto;
+    max-width: 1200px;
     padding: 24px;
 }
 
 // Header
-.topbar {
-    display: flex;
-    justify-content: space-between;
+.topbar {  // .topbar (unchanged)
     align-items: center;
-    gap: 20px;
     background-color: var(--elements-color);
-    padding: 16px 24px;
     box-shadow: 0px 2px 4px var(--shadow);
+    display: flex;
+    gap: 20px;
+    justify-content: space-between;
+    padding: 16px 24px;
     position: sticky;
     top: 0;
     z-index: 1000;
-}
 
-.theme-mode {
-    button {
-        display: flex;
-        background: none;
-        border: none;
-        font-size: 1rem;
-        cursor: pointer;
-        color: inherit;
+    &__title {  // .title -> .topbar__title
+        font-size: 1.5rem;
+    }
+
+    &__theme {  // .theme-mode -> .topbar__theme
+        button {
+            background: none;
+            border: none;
+            color: inherit;
+            cursor: pointer;
+            display: flex;
+            font-size: 1rem;
+        }
     }
 }
 
 // Search & Filter
-.snf {
+.search-filter {  // .snf -> .search-filter
+    align-items: center;
+    background-color: var(--background-color);
     display: flex;
     justify-content: space-between;
-    align-items: center;
     margin: 32px 0;
-    background-color: var(--background-color);
     padding: 16px 24px;
     position: sticky;
-    top: 70px;  // Adjusted to stay below the topbar
+    top: 70px;
+    transition: background-color 0.05s ease-in-out 0.05s, color 0.05s ease-in-out 0.05s;
     z-index: 999;
 }
 
 // Search Bar
-.search-container {
-    display: flex;
+.search {  // .search-container -> .search
     align-items: center;
     background-color: var(--elements-color);
-    box-shadow: 2px px 4px 3px var(--shadow);
     border-radius: 6px;
+    box-shadow: 2px px 4px 3px var(--shadow);
+    display: flex;
+    max-width: 400px;
+    margin-top: 30px;
     padding: 12px;
     width: 100%;
-    max-width: 400px;
+    transition: background-color 0.05s ease-in-out 0.05s, color 0.05s ease-in-out 0.05s;
 
-    input {
-        border: none;
-        outline: none;
-        flex: 1;
-        padding: 10px;
+    &__icon {  // img -> .search__icon
+        height: 16px;
+        width: 16px;
+    }
+
+    &__input {  // input -> .search__input
         background: none;
+        border: none;
         color: inherit;
+        flex: 1;
         font-size: 1rem;
+        outline: none;
+        padding: 10px;
 
         &::placeholder {
             color: #999;
@@ -123,50 +135,55 @@ body {
 }
 
 // Filter Dropdown
-.filter-by-region {
-    width: 200px;
-    padding: 12px;
-    border: none;
-    box-shadow: 0px 0px 8px var(--shadow);
-    border-radius: 6px;
+.filter {  // .filter-by-region -> .filter
     background-color: var(--elements-color);
+    border: none;
+    border-radius: 6px;
+    box-shadow: 0px 0px 8px var(--shadow);
     color: var(--text-color);
-    font-size: 1rem;
     cursor: pointer;
+    font-size: 1rem;
+    margin-top: 30px;
+    padding: 12px;
+    width: 200px;
+    transition: background-color 0.05s ease-in-out 0.05s, color 0.05s ease-in-out 0.05s;
+
+    &__option {  // option -> .filter__option
+        font-size: 1rem;
+    }
 }
 
-
 // Countries Grid
-.countries-components {
-    max-width: 1200px;
-    margin-top: 16px;
+.countries {  // .countries-components -> .countries
     display: flex;
     flex-wrap: wrap;
     gap: 30px;
-    margin-inline: auto;
     justify-content: center;
+    margin-inline: auto;
+    margin-top: 16px;
+    max-width: 1200px;
 }
 
 // Country Card
-.country-card {
-    display: inline-block;
-    width: 260px;
+.country-card {  // .country-card (unchanged)
+    background-color: var(--elements-color);
     border-radius: 8px;
+    box-shadow: 0 0 8px 0px rgba(0, 0, 0, 0.2);
+    display: inline-block;
     overflow: hidden;
     padding-bottom: 24px;
-    box-shadow: 0 0 8px 0px rgba(0, 0, 0, 0.2);
     transition: all 0.2s ease-in-out;
-    background-color: var(--elements-color);
+    width: 260px;
 
     &:hover {
-        transform: scale(1.03);
         box-shadow: 0px 0px 16px var(--shadow);
+        transform: scale(1.03);
     }
 
     img {
-        width: 100%;
         height: 150px;
         object-fit: cover;
+        width: 100%;
     }
 }
 
@@ -182,23 +199,18 @@ body {
 
 // Responsive Design
 @media (max-width: 1024px) {
-    .snf {
-        flex-direction: column;
+    .search-filter {  // .snf -> .search-filter
         align-items: stretch;
+        flex-direction: column;
     }
 }
 
 @media screen and (max-width: 768px) {
-    .header-content {
-        flex-direction: column;
-        text-align: center;
-    }
-
-    .title h1 {
+    .topbar__title h1 {  // .title h1 -> .topbar__title h1
         font-size: 1.25rem;
     }
 
-    .snf {
+    .search-filter {  // .snf -> .search-filter
         flex-direction: column;
         gap: 16px;
     }

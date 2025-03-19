@@ -16,7 +16,7 @@ body.dark {
 }
 
 // Theme Mode
-#theme-mode {
+.header__theme-button {  // #theme-mode
     img {
         filter: invert(1);
         color: var(--text-color);
@@ -46,14 +46,14 @@ body.dark {
     font-family: "Nunito Sans", sans-serif;
 }
 
-body {
+.page { 
     background-color: var(--background-color);
     color: var(--text-color);
     transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
 }
 
 // Header
-header {
+.header {  
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -63,7 +63,7 @@ header {
     font-weight: 600;
 }
 
-.theme-mode button {
+.header__theme-button {  
     display: flex;
     background: none;
     border: none;
@@ -73,10 +73,10 @@ header {
 }
 
 // Back Button
-.back {
+.main-content__back {  
     padding: 24px;
 
-    button {
+    &-button {  
         display: flex;
         align-items: center;
         gap: 8px;
@@ -98,7 +98,7 @@ header {
 }
 
 // Country Details Page
-#country-details {
+.main-content__details {  
     padding: 24px;
     display: flex;
     flex-wrap: wrap;
@@ -106,7 +106,7 @@ header {
     justify-content: center;
 }
 
-.country-flag img {
+.country__flag img {  
     width: 100%;
     max-width: 500px;
     height: auto;
@@ -114,7 +114,7 @@ header {
     box-shadow: 0px 2px 6px var(--shadow);
 }
 
-.country-details-card {
+.country__details-card {  
     max-width: 600px;
     display: flex;
     flex-direction: column;
@@ -122,7 +122,7 @@ header {
 }
 
 // Country Info
-.country-info {
+.country__info {  
     display: flex;
     flex-wrap: wrap;
     gap: 20px;
@@ -137,13 +137,14 @@ header {
 }
 
 // Border Countries
-.border-countries {
+.country__border {  
     display: flex;
     flex-wrap: wrap;
     gap: 8px;
     margin-top: 16px;
 
-    span {
+    &-item, 
+    button.country__border-item {  // Apply styles to button elements
         background-color: var(--elements-color);
         padding: 6px 12px;
         box-shadow: 0px 2px 4px var(--shadow);
@@ -151,6 +152,7 @@ header {
         font-size: 14px;
         font-weight: 600;
         cursor: pointer;
+        border: none;
         transition: background-color 0.3s ease;
 
         &:hover {
@@ -159,3 +161,4 @@ header {
         }
     }
 }
+
